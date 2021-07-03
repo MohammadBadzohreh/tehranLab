@@ -36,7 +36,8 @@
                             <div class="col-md-4 pl-1">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input name="email" type="email" class="form-control" placeholder="Email" disabled="disabled"
+                                    <input name="email" type="email" class="form-control" placeholder="Email"
+                                           disabled="disabled"
                                            value="{{ auth()->user()->email }}">
                                 </div>
                                 @error("email")
@@ -107,6 +108,10 @@
                     <div class="author">
                         <a href="#">
                             <img class="avatar border-gray" src="{{ asset('./dashboard/img/mike.jpg') }}" alt="...">
+                            <input id="image_inp" type="file" name="avatar" accept="image/*">
+                            <div class="image_picker m-auto">
+                                <img id="image_changer" src="{{ asset('/dashboard/img/icons/upload.png') }}" alt="">
+                            </div>
                             <h5 class="title">{{ auth()->user()->first_name." ".auth()->user()->last_name }}</h5>
                         </a>
                         <p class="description">
@@ -116,20 +121,17 @@
                     <p class="description text-center">
                         {!! auth()->user()->about !!}
                     </p>
+
                 </div>
-                <hr>
-                <div class="button-container">
-                    <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
-                    <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                        <i class="fab fa-twitter"></i>
-                    </button>
-                    <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                        <i class="fab fa-google-plus-g"></i>
-                    </button>
-                </div>
+
             </div>
         </div>
     </div>
+@endsection
+@section("js")
+    <script>
+        $("#image_changer").click(function () {
+            $("#image_inp").click();
+        });
+    </script>
 @endsection

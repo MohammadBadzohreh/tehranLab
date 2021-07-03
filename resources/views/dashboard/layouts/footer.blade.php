@@ -11,6 +11,15 @@
 <script src="{{ asset('./dashboard/js/now-ui-dashboard.js?v=1.5.0') }}" type="text/javascript"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('./dashboard/js/demo.js') }}"></script>
+
+<script>
+    $("#logout").click(function (e) {
+        e.preventDefault();
+        console.log("ok");
+        $("#logout_form").submit();
+    });
+</script>
+@yield("js")
 </body>
 
 </html>
