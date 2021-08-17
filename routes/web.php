@@ -23,11 +23,26 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/user/edit', [App\Http\Controllers\DashboardController::class, 'user'])
-    ->name('user')
+    ->name('user.edit')
     ->middleware("auth");
 
 Route::put('/user/edit/{id}', [App\Http\Controllers\DashboardController::class, 'edit_profile'])
     ->name('edit.profile')
     ->middleware("auth");
+
+Route::get('/journal/create', [App\Http\Controllers\JournalController::class, 'create'])
+    ->name('journal.add')
+    ->middleware("auth");
+
+Route::post('/journal/store', [App\Http\Controllers\JournalController::class, 'store'])
+    ->name('journal.store')
+    ->middleware("auth");
+
+Route::get('/journal/all', [App\Http\Controllers\JournalController::class, 'index'])
+    ->name('journal.index')
+    ->middleware("auth");
+
+
+
 
 

@@ -19,15 +19,15 @@
                 </a>
             </li>
             <li>
-                <a href="./icons.html">
+                <a href="{{ route("journal.add") }}">
                     <i class="now-ui-icons education_atom"></i>
-                    <p>Icons</p>
+                    <p>Add a journal</p>
                 </a>
             </li>
             <li>
-                <a href="./map.html">
+                <a href="{{ route('journal.index') }}">
                     <i class="now-ui-icons location_map-big"></i>
-                    <p>Maps</p>
+                    <p>journals</p>
                 </a>
             </li>
             <li>
@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li class="active ">
-                <a href="user.blade.php">
+                <a href="{{ route('user.edit') }}">
                     <i class="now-ui-icons users_single-02"></i>
                     <p>User Profile</p>
                 </a>
@@ -52,12 +52,6 @@
                 <a href="./typography.html">
                     <i class="now-ui-icons text_caps-small"></i>
                     <p>Typography</p>
-                </a>
-            </li>
-            <li class="active-pro">
-                <a href="./upgrade.html">
-                    <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                    <p>Upgrade to PRO</p>
                 </a>
             </li>
         </ul>
