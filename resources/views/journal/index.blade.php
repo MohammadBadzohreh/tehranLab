@@ -21,8 +21,11 @@
                                 <th>
                                     banner
                                 </th>
-                                <th class="text-right">
+                                <th>
                                     name
+                                </th>
+                                <th>
+                                    actions
                                 </th>
                             </tr>
                             </thead>
@@ -37,10 +40,24 @@
 
                                     </td>
                                     <td>
-                                        <img width="100"  src="{{ $journal->avatar }}" alt="{{ $journal->name }}">
+                                        <img width="100" src="{{ $journal->avatar }}" alt="{{ $journal->name }}">
                                     </td>
-                                    <td class="text-right">
+                                    <td>
                                         {{ $journal->name }}
+                                    </td>
+                                    <td class="actions">
+                                        <a href="{{ route('journal.edit',$journal->id) }}">
+                                            <img src="{{ asset('images/icons/pencil.svg') }}" alt="">
+                                        </a>
+                                        <form id="delete_journal_{{ $journal->id }}" style="display: none" method="post"
+                                              action="{{ route('journal.delete') }}">
+                                            <input type="hidden" name="id" value="{{ $journal->id }}">
+                                            @method("delete")
+                                            @csrf
+                                            <input type="submit" value="submit">
+                                        </form>
+                                        <img src="{{ asset('images/icons/remove.svg') }}" alt="{{ $journal->name }}"
+                                             onclick="handleDeleteJournal('{{ $journal->id }}')">
                                     </td>
                                 </tr>
                             @endforeach
@@ -51,4 +68,13 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section("js")
+    <script type="text/javascript">
+        function handleDeleteJournal(id) {
+            const str = '#delete_journal_' + id;
+            $(str).submit();
+        }
+    </script>
 @endsection

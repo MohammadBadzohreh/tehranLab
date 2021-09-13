@@ -6,11 +6,28 @@
     display: none;
 }
 
-.image_picker {
+/*.image_picker {*/
+/*    width: 20px;*/
+/*}*/
+
+#image_changer{
     width: 20px;
+    height: 20px;
 }
 
 .image_picker image {
     width: 100%;
+}
+.actions a{
+    text-decoration: none !important;
+}
+table tr td.actions img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+table tr td.actions img:hover{
+    transform: scale(1.1);
 }
 

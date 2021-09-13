@@ -38,8 +38,22 @@ Route::post('/journal/store', [App\Http\Controllers\JournalController::class, 's
     ->name('journal.store')
     ->middleware("auth");
 
+
+Route::get('/journal/edit/{id}', [App\Http\Controllers\JournalController::class, 'edit'])
+    ->name('journal.edit')
+    ->middleware("auth");
+
+
+Route::put('/journal/update/{id}', [App\Http\Controllers\JournalController::class, 'update'])
+    ->name('journal.update')
+    ->middleware("auth");
+
 Route::get('/journal/all', [App\Http\Controllers\JournalController::class, 'index'])
     ->name('journal.index')
+    ->middleware("auth");
+
+Route::delete('/journal/delete', [App\Http\Controllers\JournalController::class, 'delete'])
+    ->name('journal.delete')
     ->middleware("auth");
 
 

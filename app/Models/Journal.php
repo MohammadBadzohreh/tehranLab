@@ -20,7 +20,14 @@ class Journal extends Model
 
     public function getAvatarAttribute()
     {
-        return  asset('storage/journals/'.$this->banner);
+        return asset('storage/journals/' . $this->banner);
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleted(function ($journal) {
+            Storage::disk("public")->delete("journals/" . $journal->banner);
+        });
+    }
 }

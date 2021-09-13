@@ -4,7 +4,7 @@ namespace App\Http\Requests\journal;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreJournalRequest extends FormRequest
+class UpdateJournalRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,8 +14,8 @@ class StoreJournalRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required|string|unique:journals,name|min:2|max:40",
-            "banner" => "required|image|mimes:jpeg,png,jpg",
+            "name" => ["required", "string", "unique:journals,name,".$this->id , "min:2", "max:40"],
+            "banner" => "nullable|image|mimes:jpeg,png,jpg",
         ];
     }
 }
