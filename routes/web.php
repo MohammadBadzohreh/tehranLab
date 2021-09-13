@@ -56,6 +56,8 @@ Route::delete('/journal/delete', [App\Http\Controllers\JournalController::class,
     ->name('journal.delete')
     ->middleware("auth");
 
+Route::resource("article",\App\Http\Controllers\ArticleController::class);
+
 
 
 

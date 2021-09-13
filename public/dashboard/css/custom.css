@@ -10,7 +10,7 @@
 /*    width: 20px;*/
 /*}*/
 
-#image_changer{
+#image_changer,#file_selector{
     width: 20px;
     height: 20px;
 }
@@ -30,4 +30,3 @@ table tr td.actions img{
 table tr td.actions img:hover{
     transform: scale(1.1);
 }
-

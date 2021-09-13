@@ -25,6 +25,7 @@ class JournalController extends Controller
             "name" => $request->name,
             "banner" => $fileName,
         ]);
+        return view("journal.index");
     }
 
     public function index()

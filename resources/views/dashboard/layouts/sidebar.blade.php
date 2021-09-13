@@ -30,6 +30,19 @@
                     <p>journals</p>
                 </a>
             </li>
+
+            <li>
+                <a href="{{ route('article.create') }}">
+                    <i class="now-ui-icons location_map-big"></i>
+                    <p>add an article</p>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('article.index') }}">
+                    <i class="now-ui-icons location_map-big"></i>
+                    <p>articles</p>
+                </a>
+            </li>
             <li>
                 <a href="./notifications.html">
                     <i class="now-ui-icons ui-1_bell-53"></i>

@@ -23,18 +23,8 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="row">
                             <input id="image_inp" type="file" name="banner" accept="image/*">
-                            <div class="image_picker m-auto">
-                                <img id="image_changer" width="100" src="{{ asset('/dashboard/img/icons/upload.png') }}" alt="">
-                            </div>
-                        </div>
-                        @error("banner")
-                        <div class="validation_error">{{ $message }}</div>
-                        @enderror
-
-                        <div class="row">
                             <div class="image_picker m-auto">
                                 <img width="100" src="{{ $journal->avatar }}" alt="{{ $journal->name }}">
                                 <p class="text-center">current banner</p>
