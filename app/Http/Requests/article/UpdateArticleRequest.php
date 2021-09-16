@@ -4,9 +4,8 @@ namespace App\Http\Requests\article;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreArticleRequest extends FormRequest
+class UpdateArticleRequest extends FormRequest
 {
-
     public function authorize()
     {
         return auth()->check();
@@ -16,8 +15,8 @@ class StoreArticleRequest extends FormRequest
     {
         return [
             "journal_id" => "required|exists:journals,id",
-            "title" => "required|string|unique:articles,title",
-            "file" => "required||mimes:pdf",
+            "title" => "required|string|unique:articles,title,".$this->article,
+            "file" => "nullable|mimes:pdf",
             "summry" => "required|string",
         ];
     }

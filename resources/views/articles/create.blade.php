@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="col-12">
-                                <input id="image_inp" type="file" name="file" accept="image/*">
+                                <input id="image_inp" type="file" name="file" accept="application/pdf,application/vnd.ms-excel">
                                 <div class="image_picker m-auto">
                                     <img id="file_selector" style="display: block; margin: auto"
                                          src="{{ asset('/dashboard/img/icons/upload.png') }}" alt="file selector">
