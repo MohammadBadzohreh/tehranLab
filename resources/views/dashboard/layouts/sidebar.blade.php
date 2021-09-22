@@ -55,6 +55,20 @@
                     <p>User Profile</p>
                 </a>
             </li>
+
+            <li>
+                <a href="{{ route("users.index") }}">
+                    <i class="now-ui-icons text_caps-small"></i>
+                    <p>users</p>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('role.create') }}">
+                    <i class="now-ui-icons users_single-02"></i>
+                    <p>role permissions</p>
+                </a>
+            </li>
             <li>
                 <a href="./tables.html">
                     <i class="now-ui-icons design_bullet-list-67"></i>
@@ -67,6 +81,8 @@
                     <p>Typography</p>
                 </a>
             </li>
+
+
         </ul>
     </div>
 </div>

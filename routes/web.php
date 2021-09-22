@@ -56,7 +56,36 @@ Route::delete('/journal/delete', [App\Http\Controllers\JournalController::class,
     ->name('journal.delete')
     ->middleware("auth");
 
-Route::resource("article",\App\Http\Controllers\ArticleController::class);
+Route::resource("article", \App\Http\Controllers\ArticleController::class);
+
+Route::get("/about", [\App\Http\Controllers\FrontController::class, "about"]);
+
+
+Route::get("role/create", [\App\Http\Controllers\RolePermissionController::class, "createRole"])->name("role.create");
+
+Route::post("role/store", [\App\Http\Controllers\RolePermissionController::class, "storeRole"])->name("role.store");
+
+
+Route::get("role/all", [\App\Http\Controllers\RolePermissionController::class, "index"])->name("role.index");
+
+Route::get("role/edit/{id}",[\App\Http\Controllers\RolePermissionController::class,"edit"])->name("role.edit");
+Route::put("role/update/{id}",[\App\Http\Controllers\RolePermissionController::class,"update"])->name("role.update");
+Route::delete("role/delete/{id}",[\App\Http\Controllers\RolePermissionController::class,"delete"])->name("role.destroy");
+
+
+Route::get("/users",[\App\Http\Controllers\UserController::class,"index"])->name("users.index");
+
+Route::delete("/user/{id}",[\App\Http\Controllers\UserController::class,"delete"])->name("user.destroy");
+
+Route::get("/user/editRole/{id}",[\App\Http\Controllers\UserController::class,"editRole"])->name("user.editRole");
+
+Route::post("/user/editRole/{id}",[\App\Http\Controllers\UserController::class,"editRoleUser"])->name("user.editRole");
+
+
+
+
+
+
 
 
 
