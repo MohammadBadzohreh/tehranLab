@@ -1,9 +1,6 @@
 @extends("dashboard.layouts.main")
 
 @section("content")
-
-    @extends("dashboard.layouts.main")
-@section("content")
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -49,4 +46,4 @@
         </div>
     </div>
 @endsection
-@endsection
+
