@@ -21,4 +21,5 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('dashboard/css/demo.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('/dashboard/css/custom.css') }}">
+    @yield("css")
 </head>

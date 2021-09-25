@@ -68,18 +68,23 @@ Route::post("role/store", [\App\Http\Controllers\RolePermissionController::class
 
 Route::get("role/all", [\App\Http\Controllers\RolePermissionController::class, "index"])->name("role.index");
 
-Route::get("role/edit/{id}",[\App\Http\Controllers\RolePermissionController::class,"edit"])->name("role.edit");
-Route::put("role/update/{id}",[\App\Http\Controllers\RolePermissionController::class,"update"])->name("role.update");
-Route::delete("role/delete/{id}",[\App\Http\Controllers\RolePermissionController::class,"delete"])->name("role.destroy");
+Route::get("role/edit/{id}", [\App\Http\Controllers\RolePermissionController::class, "edit"])->name("role.edit");
+Route::put("role/update/{id}", [\App\Http\Controllers\RolePermissionController::class, "update"])->name("role.update");
+Route::delete("role/delete/{id}", [\App\Http\Controllers\RolePermissionController::class, "delete"])->name("role.destroy");
 
 
-Route::get("/users",[\App\Http\Controllers\UserController::class,"index"])->name("users.index");
+Route::get("/users", [\App\Http\Controllers\UserController::class, "index"])->name("users.index");
 
-Route::delete("/user/{id}",[\App\Http\Controllers\UserController::class,"delete"])->name("user.destroy");
+Route::delete("/user/{id}", [\App\Http\Controllers\UserController::class, "delete"])->name("user.destroy");
 
-Route::get("/user/editRole/{id}",[\App\Http\Controllers\UserController::class,"editRole"])->name("user.editRole");
+Route::get("/user/editRole/{id}", [\App\Http\Controllers\UserController::class, "editRole"])->name("user.editRole");
 
-Route::post("/user/editRole/{id}",[\App\Http\Controllers\UserController::class,"editRoleUser"])->name("user.editRole");
+Route::post("/user/editRole/{id}", [\App\Http\Controllers\UserController::class, "editRoleUser"])->name("user.editRole");
+
+Route::resource("news", \App\Http\Controllers\NewsController::class);
+
+Route::post('ckeditor/upload', [\App\Http\Controllers\NewsController::class,"uploadImage"])->name('ckeditor.upload');
+
 
 
 
