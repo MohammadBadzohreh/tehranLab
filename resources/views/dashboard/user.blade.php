@@ -107,8 +107,12 @@
                 <div class="card-body">
                     <div class="author">
                         <a href="#">
-                            <img class="avatar border-gray" src="{{ asset('./dashboard/img/mike.jpg') }}" alt="...">
-                            <input id="image_inp" type="file" name="avatar" accept="image/*">
+                            <img class="avatar border-gray" src="{{ auth()->user()->avatar }}" alt="...">
+                            <form id="form" action="{{ route('edit.avatar.user') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                @method("put")
+                                <input id="image_inp" type="file" name="avatar" accept="image/*">
+                            </form>
                             <div class="image_picker m-auto">
                                 <img id="image_changer" src="{{ asset('/dashboard/img/icons/upload.png') }}" alt="">
                             </div>
@@ -133,5 +137,8 @@
         $("#image_changer").click(function () {
             $("#image_inp").click();
         });
+        document.getElementById("image_inp").onchange = function() {
+            document.getElementById("form").submit();
+        };
     </script>
 @endsection

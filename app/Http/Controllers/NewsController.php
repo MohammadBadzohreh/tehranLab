@@ -62,7 +62,6 @@ class NewsController extends Controller
         $news->body  = $request->body;
         $news->save();
         return redirect()->route("news.index");
-
     }
 
     public function destroy($id)

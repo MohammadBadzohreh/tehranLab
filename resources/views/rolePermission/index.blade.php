@@ -5,8 +5,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title"> Simple Table</h4>
+                <div class="card-header card_head">
+                    <h4 class="card-title">roles</h4>
+                    <a href="{{ route("role.create") }}">add role</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

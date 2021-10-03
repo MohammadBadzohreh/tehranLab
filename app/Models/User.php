@@ -20,6 +20,7 @@ class User extends Authenticatable
         'last_name',
         'address',
         'company',
+        'banner',
         'about'
     ];
 
@@ -32,4 +33,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatarAttribute()
+    {
+        if ($this->banner){
+            return asset('storage/users/' . $this->banner);
+        }
+        return asset('./dashboard/img/mike.jpg');
+    }
 }

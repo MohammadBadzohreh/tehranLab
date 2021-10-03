@@ -5,8 +5,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card_head">
-                    <h4 class="card-title">newses</h4>
-                    <a href="{{ route("news.create") }}">add news</a>
+                    <h4 class="card-title">categories</h4>
+                    <a href="{{ route('category.create') }}">add category</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -17,49 +17,49 @@
                                     id
                                 </th>
                                 <th>
-                                    writer
+                                    user
                                 </th>
                                 <th>
                                     title
                                 </th>
                                 <th>
-                                    banner
+                                    content
                                 </th>
 
-                                <th>
-                                    actions
-                                </th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($newses as $news)
+                            @foreach($categories as $category)
                                 <tr>
                                     <td>
-                                        {{ $news->id }}
+                                        {{ $category->id }}
                                     </td>
                                     <td>
-                                        {{ $news->user->name }}
+                                        {{ $category->user->name ?? "_" }}
 
                                     </td>
+
                                     <td>
-                                        {{ $news->title }}
+                                        {{ $category->title }}
+
                                     </td>
+
                                     <td>
-                                        <img width="100" src="{{ $news->avatar }}" alt="banner">
+                                        {{ $category->body }}
                                     </td>
+
                                     <td class="actions">
-                                        <a href="{{ route('news.edit',$news->id) }}">
-                                            <img src="{{ asset('images/icons/pencil.svg') }}" alt="">
+                                        <a href="{{ route('article.edit',$category->id) }}">
+                                            <img src="{{ asset('images/icons/pencil.svg') }}" alt="edit article">
                                         </a>
-                                        <form id="delete_news_{{ $news->id }}" style="display: none" method="post"
-                                              action="{{ route('news.destroy',$news->id) }}">
-                                            <input type="hidden" name="id" value="{{ $news->id }}">
+                                        <form id="delete_category_{{ $category->id }}" style="display: none" method="post"
+                                              action="{{ route('article.destroy',$category->id) }}">
                                             @method("delete")
                                             @csrf
                                             <input type="submit" value="submit">
                                         </form>
-                                        <img src="{{ asset('images/icons/remove.svg') }}" alt="{{ $news->name }}"
-                                             onclick="handleDeleteJournal('{{ $news->id }}')">
+                                        <img src="{{ asset('images/icons/remove.svg') }}" alt="delete article"
+                                             onclick="handleDeleteArticle('{{ $category->id }}')">
                                     </td>
                                 </tr>
                             @endforeach
@@ -74,9 +74,10 @@
 
 @section("js")
     <script type="text/javascript">
-        function handleDeleteJournal(id) {
-            const str = '#delete_news_' + id;
-            $(str).submit();
+        function handleDeleteArticle(id) {
+            const delete_category = '#delete_category_' + id;
+            $(delete_category).submit();
         }
     </script>
 @endsection
+

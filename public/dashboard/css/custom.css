@@ -30,3 +30,18 @@ table tr td.actions img{
 table tr td.actions img:hover{
     transform: scale(1.1);
 }
+.card_head{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.card_head a{
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+    background-color: orange;
+    padding: .5em .7em;
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+}

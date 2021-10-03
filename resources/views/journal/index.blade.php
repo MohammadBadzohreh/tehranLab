@@ -4,8 +4,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title"> Simple Table</h4>
+                <div class="card-header card_head">
+                    <h4 class="card-title">journals</h4>
+                    <a href="{{ route("journal.add") }}">add journal</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

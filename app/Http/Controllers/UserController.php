@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\rolePermissions\editUserRoleRequest;
+use App\Http\Requests\UpdateUserProfileRequest;
 use App\Models\Role;
 use App\Models\User;
 
@@ -36,4 +37,5 @@ class UserController extends Controller
         $user->syncRoles($request->roles);
         return redirect()->route("users.index");
     }
+
 }

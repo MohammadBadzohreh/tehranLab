@@ -5,8 +5,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card_head">
-                    <h4 class="card-title">newses</h4>
-                    <a href="{{ route("news.create") }}">add news</a>
+                    <h4 class="card-title">peolpe</h4>
+                    <a href="{{ route("people.create") }}">add person</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -17,49 +17,49 @@
                                     id
                                 </th>
                                 <th>
-                                    writer
+                                    name
                                 </th>
                                 <th>
-                                    title
+                                    education
                                 </th>
                                 <th>
                                     banner
                                 </th>
-
                                 <th>
                                     actions
                                 </th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($newses as $news)
+                            @foreach($people as $person)
                                 <tr>
                                     <td>
-                                        {{ $news->id }}
+                                        {{ $person->id }}
                                     </td>
                                     <td>
-                                        {{ $news->user->name }}
+                                        {{ $person->name }}
+                                    </td>
+                                    <td>
+                                        {{ $person->education }}
 
                                     </td>
                                     <td>
-                                        {{ $news->title }}
+                                        <img width="100" src="{{ $person->avatar }}" alt="{{ $person->name }}">
                                     </td>
-                                    <td>
-                                        <img width="100" src="{{ $news->avatar }}" alt="banner">
-                                    </td>
+
                                     <td class="actions">
-                                        <a href="{{ route('news.edit',$news->id) }}">
+                                        <a href="{{ route('people.edit',$person->id) }}">
                                             <img src="{{ asset('images/icons/pencil.svg') }}" alt="">
                                         </a>
-                                        <form id="delete_news_{{ $news->id }}" style="display: none" method="post"
-                                              action="{{ route('news.destroy',$news->id) }}">
-                                            <input type="hidden" name="id" value="{{ $news->id }}">
+                                        <form id="delete_person_{{ $person->id }}" style="display: none" method="post"
+                                              action="{{ route('people.destroy',$person->id) }}">
+                                            <input type="hidden" name="id" value="{{ $person->id }}">
                                             @method("delete")
                                             @csrf
                                             <input type="submit" value="submit">
                                         </form>
-                                        <img src="{{ asset('images/icons/remove.svg') }}" alt="{{ $news->name }}"
-                                             onclick="handleDeleteJournal('{{ $news->id }}')">
+                                        <img src="{{ asset('images/icons/remove.svg') }}" alt="{{ $person->name }}"
+                                             onclick="handleDeletePerson('{{ $person->id }}')">
                                     </td>
                                 </tr>
                             @endforeach
@@ -74,9 +74,10 @@
 
 @section("js")
     <script type="text/javascript">
-        function handleDeleteJournal(id) {
-            const str = '#delete_news_' + id;
+        function handleDeletePerson(id) {
+            const str = '#delete_person_' + id;
             $(str).submit();
         }
     </script>
 @endsection
+

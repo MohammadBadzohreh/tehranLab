@@ -84,6 +84,16 @@ Route::post("/user/editRole/{id}", [\App\Http\Controllers\UserController::class,
 Route::resource("news", \App\Http\Controllers\NewsController::class);
 
 Route::post('ckeditor/upload', [\App\Http\Controllers\NewsController::class,"uploadImage"])->name('ckeditor.upload');
+Route::post('category/ckeditor/upload', [\App\Http\Controllers\CategoryController::class,"uploadImage"])->name('category.ckeditor.upload');
+
+Route::resource("category",\App\Http\Controllers\CategoryController::class);
+
+
+Route::resource("people",\App\Http\Controllers\PeopleController::class)->except(["show"]);
+
+Route::put("upload/banner/user",[\App\Http\Controllers\DashboardController::class,"edit_avatar_user"])->name("edit.avatar.user");
+
+
 
 
 
